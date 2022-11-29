@@ -15,6 +15,7 @@ rcParams['figure.dpi'] = config.dpi
 
 wavelength = config.wavelength
 z_talbot = 2 * config.period ** 2 / wavelength
+config.end_z_axic = int((z_talbot * 1.6 + 99) / 100) * 100  # pushing z axis to have enough space to picture z_talbot
 
 x = np.linspace(config.start_x_axic, -config.start_x_axic, config.plot_resolution_x)
 z = np.linspace(config.start_z_axic, config.end_z_axic, config.plot_resolution_y)
@@ -36,6 +37,6 @@ plt.ylim(-config.plt_x_size, config.plt_x_size)  # in basic world Y axis goes up
 
 # Adding to plot a line and a text to show where is Talbot's length
 plt.axline((z_talbot, -config.plt_x_size), (z_talbot, config.plt_x_size), linestyle='--', color='w', marker='o')
-plt.text(z_talbot * 1.05, -config.plt_x_size * 0.9, 'длина Тальбота', color='w')
+plt.text(z_talbot * 1.05, config.plt_x_size * 0.85, 'длина Тальбота', color='w')
 
 plt.savefig(config.picture_name)
