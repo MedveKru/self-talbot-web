@@ -20,7 +20,7 @@ plot_resolution_y = int((picture_resolution_y * dpi) / 2) * 2
 
 # --------------------------
 # Modifying for user values
-wavelength = 0.6238        # virtually wave's length
+wavelength = 0.6238          # virtually wave's length
 period = 40                  # period of a grid
 phase_shift = 0
 

@@ -32,6 +32,8 @@ talbot_effect.BPM()
 
 talbot_effect.draw(kind='intensity')
 plt.title('Эффект Тальбота')
+plt.xlabel("X (мк)")
+plt.ylabel("Y (мк)")
 plt.ylim(-config.plt_x_size, config.plt_x_size)  # in basic world Y axis goes up
 # but here X axis go up and Z axis go right, so here can be misunderstanding
 
