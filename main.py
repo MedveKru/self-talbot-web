@@ -38,7 +38,8 @@ plt.ylim(-config.plt_x_size, config.plt_x_size)  # in basic world Y axis goes up
 # but here X axis go up and Z axis go right, so here can be misunderstanding
 
 # Adding to plot a line and a text to show where is Talbot's length
-plt.axline((z_talbot, -config.plt_x_size), (z_talbot, config.plt_x_size), linestyle='--', color='w', marker='o')
-plt.text(z_talbot * 1.05, config.plt_x_size * 0.85, 'длина Тальбота', color='w')
+if config.show_z_talbot:
+    plt.axline((z_talbot, -config.plt_x_size), (z_talbot, config.plt_x_size), linestyle='--', color='w', marker='o')
+    plt.text(z_talbot * 1.05, config.plt_x_size * 0.85, 'длина Тальбота', color='w')
 
 plt.savefig(config.picture_name)

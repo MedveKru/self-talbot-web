@@ -23,5 +23,6 @@ plot_resolution_y = int((picture_resolution_y * dpi) / 2) * 2
 wavelength = 0.6238          # virtually wave's length
 period = 40                  # period of a grid
 phase_shift = 0
+show_z_talbot = False
 
 picture_name = 'output.png'  # result picture's name
