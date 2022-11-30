@@ -40,6 +40,10 @@ plt.ylim(-config.plt_x_size, config.plt_x_size)  # in basic world Y axis goes up
 # Adding to plot a line and a text to show where is Talbot's length
 if config.show_z_talbot:
     plt.axline((z_talbot, -config.plt_x_size), (z_talbot, config.plt_x_size), linestyle='--', color='w', marker='o')
-    plt.text(z_talbot * 1.05, config.plt_x_size * 0.85, 'длина Тальбота', color='w')
+    plt.annotate('длина Тальбота', color='w',
+                 xytext=(z_talbot * 1.1, -config.plt_x_size * 0.8),
+                 xy=(z_talbot, -config.plt_x_size * 0.95),
+                 arrowprops=dict(arrowstyle="->", connectionstyle="angle3", color='w'),
+                 )
 
 plt.savefig(config.picture_name)
