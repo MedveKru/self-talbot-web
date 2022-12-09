@@ -16,23 +16,25 @@ import config
 # mm = 1000 * um
 
 def get_front(z_indent):
-    u1 = Scalar_source_XY(x=z, y=x, wavelength=wavelength)
+    y = np.linspace(-config.start_x_axic, config.start_x_axic, config.plot_resolution_x)
+    x = np.linspace(config.start_z_axic, config.end_z_axic, config.plot_resolution_y)
+
+    u1 = Scalar_source_XY(x=x, y=y, wavelength=wavelength)
     u1.plane_wave(A=1)
 
-    t1 = Scalar_mask_XY(x=z, y=x, wavelength=wavelength)
+    t1 = Scalar_mask_XY(x=x, y=y, wavelength=wavelength)
     # t1.slit(x0=0, size=50 * um, angle=0 * degrees)
-    t1.ronchi_grating(x0=config.phase_shift, period=config.period, fill_factor=0.5)
+    t1.ronchi_grating(x0=config.phase_shift, period=config.period, fill_factor=0.5, angle=90 * degrees)
 
     u2 = u1 * t1
-    u3 = u2.RS(z=z_indent, new_field=True)
+    u3 = u2.RS(z=z_indent)
     u3.draw()
 
     plt.title('Эффект Тальбота (фронтальное изображение)')
-    plt.xlabel("X (мк)")
+    plt.xlabel("Z (мк)")
     plt.ylabel("Y (мк)")
 
     plt.savefig(config.picture_front_name)
-
 
 
 rcParams['figure.figsize'] = (config.picture_resolution_x, config.picture_resolution_y)
@@ -59,7 +61,7 @@ talbot_effect.draw(kind='intensity')
 
 plt.title('Эффект Тальбота')
 plt.xlabel("X (мк)")
-plt.ylabel("Z (мк)")
+plt.ylabel("Y (мк)")
 plt.ylim(-config.plt_x_size, config.plt_x_size)  # in basic world Z axis goes up
 # but here X axis go up and Z axis go right, so here can be misunderstanding
 
