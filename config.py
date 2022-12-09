@@ -20,10 +20,11 @@ plot_resolution_y = int((picture_resolution_y * dpi) / 2) * 2
 
 # --------------------------
 # Modifying for user values
-wavelength = 10          # virtually wave's length
+wavelength = 10               # virtually wave's length
 period = 40                  # period of a grid
 phase_shift = 0
 show_z_talbot = False
+z_indent = 50                  # for front image: how many MK go through Z axic to get cut
 
-picture_name = 'output.png'  # result picture's name
+picture_name = 'output.png'              # result picture's name
 picture_front_name = 'front_output.png'  # result picture's name
