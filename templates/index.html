@@ -1,0 +1,50 @@
+{% load static %}
+<html lang="ru">
+<body>
+<p>
+    <img src="{% static 'output.png' %}" alt="standard">
+    <img src="{% static 'front_output.png' %}" alt="front">
+</p>
+
+<form action="/process/" method="post">
+    {% csrf_token %}
+    <p>
+        <label for="id_wavelength">
+            Wave length
+            <input required type="number" name="wavelength" min="0" max="1000" step="any" id="id_wavelength"
+                   value="{{ wavelength }}">
+        </label>
+    </p>
+    <p>
+        <label for="id_period">
+            Period
+            <input id="id_period" required type="number" name="period" min="1" max="100" step="any"
+                   value="{{ period }}">
+        </label>
+    </p>
+    <p>
+        <label for="id_phase_shift">
+            Phase
+            <input id="id_phase_shift" required type="number" name="phase_shift" min="0" max="1000" step="any"
+                   value="{{ phase_shift }}">
+        </label>
+    </p>
+    <p>
+        <label for="id_show_z_talbot">
+            Show Z
+            <input type="checkbox" name="show_z_talbot" id="id_show_z_talbot">
+        </label>
+    </p>
+    <p>
+        <label for="id_z_indent">
+            Z indent
+            <input required id="id_z_indent" type="number" name="z_indent" min="0" max="1000" step="any"
+                   value="{{ z_indent }}">
+        </label>
+    </p>
+    <p>
+        <input type="submit" value="OK">
+    </p>
+</form>
+</body>
+</html>
